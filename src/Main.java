@@ -11,6 +11,8 @@ public class Main {
         bst.insert(2);
         bst.insert(12);
         bst.insert(10);
+
+        System.out.println(bst.lowerThan(10));
         System.out.println("Czy znajduje się 4?");
         System.out.println(bst.search(4));
         System.out.println();

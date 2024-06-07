@@ -1,4 +1,8 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class BST <T extends Comparable<T>>  {
+
     private Node<T> root;
     private int index = 0;
 
@@ -75,6 +79,27 @@ public class BST <T extends Comparable<T>>  {
             current = current.getLChild();
         }
         return current;
+    }
+    public ArrayList<T> lowerThan(T value) {
+        ArrayList<T> result = new ArrayList<>();
+        inOrderLowerThan(root, value, result);
+        return result;
+    }
+
+    private void inOrderLowerThan(Node<T> node, T value, ArrayList<T> result) {
+        if (node == null) {
+            return;
+        }
+
+        inOrderLowerThan(node.getLChild(), value, result);
+
+        if (node.getKey().compareTo(value) < 0) {
+            result.add(node.getKey());
+        } else {
+            return;
+        }
+
+        inOrderLowerThan(node.getRChild(), value, result);
     }
 
     private boolean isLeaf(Node<T> node){
