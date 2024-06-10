@@ -66,9 +66,10 @@ public class BST <T extends Comparable<T>>  {
     private void removeNodeWithTwoChildren(Node<T> node) {
         Node<T> nextNode = findNextNodeForTwoChildren(node);
         T nextKey = nextNode.getKey();
-
-        delete(nextNode.getKey()); // Recursively delete the successor
-        node.setKey(nextKey); // Swap values with successor
+        //  delete the successor
+        delete(nextNode.getKey());
+        // Swap values with successor
+        node.setKey(nextKey);
 
 
     }
@@ -122,7 +123,7 @@ public class BST <T extends Comparable<T>>  {
         if (node.getKey().compareTo(parentNode.getKey()) < 0) {
             return searchParent(parentNode.getLChild(), node);
         }
-        // Recursively search for the parent in the right subtree
+        //  search for the parent in the right subtree
         else {
             return searchParent(parentNode.getRChild(), node);
         }
